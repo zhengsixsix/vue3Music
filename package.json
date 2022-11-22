@@ -8,10 +8,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@varlet/ui": "^2.2.1",
     "@vitejs/plugin-vue-jsx": "^2.1.1",
     "@vue/babel-plugin-jsx": "^1.1.1",
     "electron": "^21.3.0",
+    "element-plus": "^2.2.22",
     "esbuild": "^0.15.15",
     "vite-plugin-eslint": "^1.8.1",
     "vue": "^3.2.41"

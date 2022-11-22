@@ -10,7 +10,7 @@ const Header = defineComponent({
           <h1 class={style.text}>DS Music</h1>
         </div>
         <div class={style.serachinput}>
-          <var-input line={false} hint={false} Vmodel={searchInput.value} />
+          <el-input placeholder="Please input" v-model={searchInput.value} />
         </div>
       </div>
     );

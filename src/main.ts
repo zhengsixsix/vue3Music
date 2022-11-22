@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import App from './App'
 import '@/assets/less/index.less'
-import Varlet from '@varlet/ui'
-import '@varlet/ui/es/style.js'
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
 
-createApp(App).use(Varlet).mount('#app')
+createApp(App).use(ElementPlus).mount('#app')
