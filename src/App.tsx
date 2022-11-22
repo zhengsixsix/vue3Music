@@ -1,11 +1,28 @@
-import { defineComponent } from "vue";
+import { defineComponent, nextTick, onMounted } from "vue";
 import Header from "./components/header/Header";
 const App = defineComponent({
-        setup() {
-                return () => (<div>
-                        <Header />
-                </div>
-                )
-        },
-})
-export default App
+  setup() {
+    const setFont = function (data?:number) {
+      if (data) {
+        var cliWidth = data - 10;
+      } else {
+        let html = document.documentElement;
+        var cliWidth = html.clientWidth - 10;
+      }
+      nextTick(() => {
+        document.documentElement.style.fontSize = 10 * (cliWidth / 1920) + "px";
+      });
+    };
+    onMounted(()=>{
+        setFont()
+        window.addEventListener('resize',() => setFont(), false)
+    })
+
+    return () => (
+      <>
+        <Header />
+      </>
+    );
+  },
+});
+export default App;
