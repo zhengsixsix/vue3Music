@@ -1,5 +1,6 @@
 import { defineComponent, nextTick, onMounted } from "vue";
 import Header from "./components/header/Header";
+import Tab from './components/tab/Tab'
 const App = defineComponent({
   setup() {
     const setFont = function (data?:number) {
@@ -21,6 +22,7 @@ const App = defineComponent({
     return () => (
       <>
         <Header />
+        <Tab></Tab>
       </>
     );
   },

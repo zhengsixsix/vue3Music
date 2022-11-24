@@ -1,0 +1,21 @@
+.container{
+    .aside{
+        border-right: 1px solid #ccc;
+        height: calc(80vh + 38px);
+        width: 160px;
+        .menu_vertical_demo{}
+    }
+}
+@media screen and (max-width:900px){
+    /deep/.el-menu{
+        display: flex;
+    }
+    .container{
+        .aside{
+            border-right: none;
+            height: 60px;
+            width: 100%;
+           .menu_vertical_demo{}
+        }
+    }
+  }
