@@ -56,6 +56,7 @@ const Tab = defineComponent({
             class={style.menu_vertical_demo}
             mode={asideMode.value}
             default-active={defaultActive.value}
+            ellipsis={false}
           >
             {asider.map((item) => {
               return <el-menu-item index={item.id}>{item.title}</el-menu-item>;

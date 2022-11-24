@@ -3,8 +3,6 @@
   width: 100%;
   color: @color-theme;
   background-color: #222222;
-  display: flex;
-  align-items: center;
 
   .logo {
     display: flex;
@@ -33,15 +31,19 @@
     display: flex;
     align-items: center;
     width: 180px;
-    height: 30px;
+    height: 44px;
   }
 
 }
 
 @media screen and (max-width:900px) {
   .header {
+    display: flex;
     text-align: center;
     justify-content: center;
+    .logo{
+      width: 150px;
+    }
 
     .serachinput {
       display: none;

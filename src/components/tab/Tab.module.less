@@ -7,15 +7,17 @@
     }
 }
 @media screen and (max-width:900px){
-    /deep/.el-menu{
-        display: flex;
+    .el-menu--horizontal{
+        background-color: red !important;
     }
     .container{
         .aside{
             border-right: none;
             height: 60px;
             width: 100%;
-           .menu_vertical_demo{}
+           .menu_vertical_demo{
+            justify-content: space-evenly;
+           }
         }
     }
   }
