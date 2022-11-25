@@ -16,22 +16,22 @@ const Tab = defineComponent({
       {
         title: "发现音乐",
         icon: "iconfont icon-yinle",
-        id: "1",
+        id: "/discover",
       },
       {
         title: "视频",
         icon: "iconfont icon-yinle",
-        id: "2",
+        id: "/video",
       },
       {
         title: "收藏",
         icon: "iconfont icon-yinle",
-        id: "3",
+        id: "/collection",
       },
       {
         title: "每日推荐",
         icon: "iconfont icon-yinle",
-        id: "4",
+        id: "/recommend",
       },
     ]);
     let bodyWidth = ref<number>(0);
@@ -55,11 +55,17 @@ const Tab = defineComponent({
           <el-menu
             class={style.menu_vertical_demo}
             mode={asideMode.value}
+            router={true}
             default-active={defaultActive.value}
             ellipsis={false}
           >
             {asider.map((item) => {
-              return <el-menu-item index={item.id}>{item.title}</el-menu-item>;
+              return (
+                <el-menu-item index={item.id}>
+                  {item.title}
+                  {defaultActive.value}
+                </el-menu-item>
+              );
             })}
           </el-menu>
         </div>
