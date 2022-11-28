@@ -1,0 +1,32 @@
+.navBarContainer {
+  height: 60px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.navBarContainer .navBar {
+  display: flex;
+  position: relative;
+  left: 0px;
+  top: 0;
+  background-color: #fff;
+  z-index: 100;
+  width: 100%;
+  color: #313131;
+  align-items: center;
+  padding: 10px 0 20px 20px;
+}
+.navBarContainer .navBar .barItem {
+  font-size: 13px;
+  margin: 0 10px;
+  text-align: center;
+  cursor: pointer;
+}
+.active {
+  font-size: 16px;
+  color: black;
+  font-weight: 600;
+  padding-bottom: 5px;
+  border-bottom: 3px solid #ec4141;
+  transform: translateY(4px);
+}

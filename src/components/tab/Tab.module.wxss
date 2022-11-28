@@ -1,0 +1,15 @@
+.container .aside {
+  border-right: 1px solid #ccc;
+  height: calc(80vh + 38px);
+  width: 160px;
+}
+@media screen and (max-width: 900px) {
+  .container .aside {
+    border-right: none;
+    height: 60px;
+    width: 100%;
+  }
+  .container .aside .menu_vertical_demo {
+    justify-content: space-evenly;
+  }
+}

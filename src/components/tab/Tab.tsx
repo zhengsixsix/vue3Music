@@ -10,7 +10,7 @@ import { defineComponent, nextTick, onMounted, reactive, ref } from "vue";
 import style from "./Tab.module.less";
 const Tab = defineComponent({
   setup() {
-    let defaultActive = ref<string>("");
+    let defaultActive = ref<string>("/discover");
     let asideMode = ref<string>("");
     const asider = reactive([
       {
@@ -63,7 +63,6 @@ const Tab = defineComponent({
               return (
                 <el-menu-item index={item.id}>
                   {item.title}
-                  {defaultActive.value}
                 </el-menu-item>
               );
             })}

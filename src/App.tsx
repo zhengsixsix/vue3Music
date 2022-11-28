@@ -1,4 +1,3 @@
-import { styleType } from "element-plus/es/components/table-v2/src/common";
 import { defineComponent, nextTick, onMounted } from "vue";
 import Header from "./components/header/Header";
 import Tab from "./components/tab/Tab";

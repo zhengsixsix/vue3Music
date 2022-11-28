@@ -9,6 +9,15 @@ export default defineConfig({
   plugins: [devPlugin(), vue(), vueJsx({
     // options are passed on to @vue/babel-plugin-jsx
   }),],
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://www.codeman.ink:3000',
+        changeOrigin: true,
+        rewrite: path => path.replace(/^\/api/, '')
+      }
+    }
+  },
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src'),

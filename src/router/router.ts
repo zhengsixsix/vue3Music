@@ -5,6 +5,13 @@ const routes: Array<RouteRecordRaw> = [
     path: "/discover",
     name: "Discover",
     component: () => import("../views/discover/Discover"),
+    redirect: "/discover/recommend",
+    children: [
+      { name: "recommends", path: "/discover/recommend", component: () => import('../views/discover/discoverChildren/Recommend') },
+      { name: "musiclist", path: "/discover/musiclist" },
+      { name: "ranking", path: "/discover/ranking" },
+      { name: "singer", path: "/discover/singer" },
+    ]
   },
   {
     path: "/collection",
