@@ -7,11 +7,15 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import("../views/discover/Discover"),
     redirect: "/discover/recommend",
     children: [
-      { name: "recommends", path: "/discover/recommend", component: () => import('../views/discover/discoverChildren/Recommend') },
+      {
+        name: "recommends",
+        path: "/discover/recommend",
+        component: () => import("../views/discover/discoverChildren/Recommend"),
+      },
       { name: "musiclist", path: "/discover/musiclist" },
       { name: "ranking", path: "/discover/ranking" },
       { name: "singer", path: "/discover/singer" },
-    ]
+    ],
   },
   {
     path: "/collection",
@@ -27,6 +31,11 @@ const routes: Array<RouteRecordRaw> = [
     path: "/video",
     name: "Video",
     component: () => import("../views/video/Video"),
+  },
+  {
+    path: "/musicListdetail/:id",
+    name: "musicListdetail",
+    component: () => import("../views/musicListDetail/MusicListDetail"),
   },
 ];
 const router = createRouter({

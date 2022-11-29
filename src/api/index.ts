@@ -1,9 +1,14 @@
 import axios from '../lib/axios'
 
+// 轮播图
 export const banner = (params?: object) => {
-    // 返回的数据格式可以和服务端约定
     return axios.get('/api/banner', params);
 }
+// 推荐页面图
 export const personalized = (params?: object) => {
     return axios.get('/api/personalized', params)
+}
+// 歌曲详情图
+export const detail = (params?:object) => {
+    return axios.get('/api/playlist/detail',params)
 }
