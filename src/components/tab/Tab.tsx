@@ -41,7 +41,6 @@ const Tab = defineComponent({
         if (bodys !== null) {
           bodyWidth.value = bodys.clientWidth;
           if (bodyWidth.value <= 900) {
-            console.log(123);
             asideMode.value = "horizontal";
           } else {
             asideMode.value = "vertical";

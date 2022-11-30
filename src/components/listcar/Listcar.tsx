@@ -10,29 +10,39 @@ const Listcar = defineComponent({
     listCardItem: Array,
   },
   setup(props: any, { emit }) {
+    const loading = ref<boolean>(true);
     let listCardItems = reactive<listCardItems[]>(props.listCardItem);
     const clickListCardItem = (id: number) => {
       emit("ClickListCardItem", id);
     };
+    if (listCardItems.length > 6) {
+      loading.value = false;
+    }
     onMounted(() => {});
     return () => (
-      <div class={style.listCard}>
-        {listCardItems.map((item: listCardItems) => {
-          return (
-            <div
-              class={style.listCardItem}
-              onClick={() => {
-                clickListCardItem(item.id);
-              }}
-            >
-              <div class={style.image}>
-                <img src={item.picUrl} alt="" />
-              </div>
-              <div class={style.title}>{item.name}</div>
-            </div>
-          );
-        })}
-      </div>
+      <>
+        {loading.value ? (
+          <el-skeleton rows={5} loading={loading.value} animated />
+        ) : (
+          <div class={style.listCard}>
+            {listCardItems.map((item: listCardItems) => {
+              return (
+                <div
+                  class={style.listCardItem}
+                  onClick={() => {
+                    clickListCardItem(item.id);
+                  }}
+                >
+                  <div class={style.image}>
+                    <img src={item.picUrl} alt="" />
+                  </div>
+                  <div class={style.title}>{item.name}</div>
+                </div>
+              );
+            })}
+          </div>
+        )}
+      </>
     );
   },
 });
