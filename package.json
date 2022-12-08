@@ -14,6 +14,7 @@
     "electron": "^21.3.0",
     "element-plus": "^2.2.22",
     "esbuild": "^0.15.15",
+    "pinia": "^2.0.27",
     "vite-plugin-eslint": "^1.8.1",
     "vue": "^3.2.41",
     "vue-router": "4"

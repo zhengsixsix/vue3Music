@@ -1,7 +1,8 @@
 import { defineComponent, nextTick, onMounted } from "vue";
 import Header from "./components/header/Header";
 import Tab from "./components/tab/Tab";
-import style from './app.module.less'
+import ButtomControl from "./components/buttomControl/ButtomControl";
+import style from "./app.module.less";
 const App = defineComponent({
   setup() {
     const setFont = function (data?: number) {
@@ -26,6 +27,7 @@ const App = defineComponent({
         <div class={style.content}>
           <Tab></Tab>
           <router-view></router-view>
+          <ButtomControl></ButtomControl>
         </div>
       </>
     );

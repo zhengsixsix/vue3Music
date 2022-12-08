@@ -66,7 +66,7 @@ const Recommend = defineComponent({
               <el-col span={23}>
                 <Listcar
                   listCardItem={listCardItem}
-                  onClickListCardItem={clickListCardItem}
+                  ClickListCardItem={clickListCardItem}
                 />
               </el-col>
             </el-row>

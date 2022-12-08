@@ -11,8 +11,6 @@ const Navbar = defineComponent({
         let activeNum = ref<number>(0)
         let clickBarItem = (item: BarItem, index: number) => {
             activeNum.value = index
-            console.log(activeNum, index);
-
         }
         return () => (<div class={style.navBarContainer}>
             <div class={style.navBar}>

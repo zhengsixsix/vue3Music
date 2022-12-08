@@ -7,13 +7,24 @@ interface listCardItems {
 }
 const Listcar = defineComponent({
   props: {
-    listCardItem: Array,
+    listCardItem: {
+      type: Array,
+      default() {
+        return [];
+      },
+    },
+    ClickListCardItem: {
+      type: Function,
+      default() {
+        return () => {};
+      },
+    },
   },
   setup(props: any, { emit }) {
     const loading = ref<boolean>(true);
     let listCardItems = reactive<listCardItems[]>(props.listCardItem);
     const clickListCardItem = (id: number) => {
-      emit("ClickListCardItem", id);
+      props.ClickListCardItem(id)
     };
     if (listCardItems.length > 6) {
       loading.value = false;
