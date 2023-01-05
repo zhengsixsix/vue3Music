@@ -1,0 +1,72 @@
+.hotComments {
+    .comments {
+      display: flex;
+      align-items: flex-end;
+      flex-direction: column;
+      .el-textarea /deep/ .el-textarea__inner {
+        height: 110px !important;
+        font-size: 12px;
+        resize: none;
+      }
+      .submitCommentButton {
+        width: 63px;
+        height: 50px;
+        .submitComment {
+          border-radius: 20px;
+          margin-top: 20px;
+          transform: scale(1.1) translateX(5%);
+        }
+      }
+    }
+    .commentItem {
+      display: flex;
+      border-bottom: 1px solid #ccc;
+      margin-top: 25px;
+      padding-bottom: 20px;
+      .commentMain {
+        width: 100%;
+        .commentContent {
+          margin: 5px 0 0 15px;
+          span {
+            line-height: 22px;
+          }
+          .commentUserNickName {
+            color: #5a8ab9;
+            cursor: pointer;
+            font-size: 14px;
+          }
+        }
+        .replied {
+          background-color: #f4f4f4;
+          width: 98%;
+          border-radius: 5px;
+          margin-left: 10px;
+          .repliedItem {
+            padding: 10px;
+            .repliedUser {
+              color: #5a8ab9;
+              cursor: pointer;
+            }
+          }
+        }
+        .commentBottom {
+          margin: 5px 0 0 15px;
+          color: rgb(175, 175, 175);
+          font-size: 14px;
+          display: flex;
+          justify-content: space-between;
+          .commentButtons {
+            display: flex;
+            width: 100px;
+            justify-content: space-between;
+          }
+        }
+      }
+      .commentCreatorAvatar {
+        img {
+          width: 50px;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
