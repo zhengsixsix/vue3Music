@@ -1,13 +1,13 @@
 import { defineStore } from "pinia";
 interface music {
-  musicId: string;
+  musicId: number;
 }
 export const useMusic = defineStore("Music", {
   state: (): music => ({
-    musicId: "1",
+    musicId: 1,
   }),
   actions: {
-    setMusicId(id: string) {
+    setMusicId(id: number) {
       this.musicId = id;
     },
   },

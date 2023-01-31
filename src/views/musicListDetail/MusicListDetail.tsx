@@ -1,11 +1,13 @@
 import { defineComponent, ref, onMounted, reactive } from "vue";
 import { detail } from "@/api/index";
 import { useRoute } from "vue-router";
+import { useMusic } from "@/store/music";
 import Comment from "@/components/comment/Comment";
 import style from "./MusicListDetail.module.less";
 const MusicListDetail = defineComponent({
   setup() {
     const Route = useRoute();
+    const Music = useMusic()
     const loading = ref<boolean>(true);
     let MusicListDetail = ref<any>({});
     let avatarUrl = ref<any>({});
@@ -24,6 +26,10 @@ const MusicListDetail = defineComponent({
         loading.value = false;
       }
     };
+    const clickRow = (data: any) => {
+      Music.setMusicId(data.id)
+
+    }
     onMounted(() => {
       getMusicListDetail();
     });
@@ -107,7 +113,7 @@ const MusicListDetail = defineComponent({
                         data={MusicListDetail.value.tracks}
                         stripe
                         style="width: 100%"
-                        onrow-dblclick="clickRow"
+                        onRow-dblclick={clickRow}
                       >
                         <el-table-column label="" width="23">
                           <i class="iconfont icon-download"></i>

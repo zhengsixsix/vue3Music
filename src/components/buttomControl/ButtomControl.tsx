@@ -1,12 +1,11 @@
-import { defineComponent, ref, onMounted } from 'vue';
+import { defineComponent, onMounted, watch, ref } from 'vue';
 import style from "./ButtomControl.module.less";
 import { useMusic } from "@/store/music";
 const ButtomControl = defineComponent({
   setup() {
     const Music = useMusic()
-    onMounted(()=>{
-        console.log(Music.musicId);
-        
+    const MusicId = Music.$onAction(({ args }) => {
+      let [Id] = args
     })
     return () => (
       <div class={style.bottomControl}>
