@@ -4,15 +4,42 @@ import { useRoute } from "vue-router";
 import { useMusic } from "@/store/music";
 import Comment from "@/components/comment/Comment";
 import style from "./MusicListDetail.module.less";
+interface comment {
+  cnum: number;
+  code: number;
+  commentBanner: unknown;
+  comments: Array<any>;
+  hotComments: Array<any>;
+  isMusician: boolean;
+  more: boolean;
+  moreHot: boolean;
+  topComments: Array<any>;
+  total: number;
+  userId: number;
+}
 const MusicListDetail = defineComponent({
   setup() {
     const Route = useRoute();
     const Music = useMusic()
+    const refcomments = ref<any>(null);
     const loading = ref<boolean>(true);
     let MusicListDetail = ref<any>({});
     let avatarUrl = ref<any>({});
     let tags = reactive<Array<string>>([]);
     const activeName = ref<string>("first");
+    let comment = reactive<comment>({
+      cnum: 0,
+      code: 0,
+      commentBanner: null,
+      comments: [],
+      hotComments: [],
+      isMusician: true,
+      more: true,
+      moreHot: true,
+      topComments: [],
+      total: 0,
+      userId: 0,
+    });
     const getMusicListDetail = async () => {
       let timestamp = Date.parse(new Date() as unknown as string);
       let { playlist }: any = await detail({
@@ -141,7 +168,33 @@ const MusicListDetail = defineComponent({
                       </el-table>
                     </el-tab-pane>
                     <el-tab-pane label={"评论"} name={"second"} height={"3px"}>
-                      <Comment></Comment>
+                      {comment.comments ? (
+                        <div class={style.commentList}>
+                          {comment.hotComments ? (
+                            <Comment
+                              commentType={"musicList"}
+                              comments={comment.hotComments}
+                              ref="comments"
+                            >{{ title: () => <h3>精彩评论</h3> }}</Comment>
+                          ) : (
+                            <Comment
+                              commentType={"musicList"}
+                              comments={comment.comments}
+                              ref="comments"
+                              ClicktransToHotComment={(info?: any) => {
+                                refcomments.value.comments.floorComment(
+                                  info.commentId,
+                                  info.nickName
+                                );
+                              }}
+                            >
+                              {{ title: () => <h3>热门评论</h3> }}
+                            </Comment>
+                          )}
+                        </div>
+                      ) : (
+                        <div></div>
+                      )}
                     </el-tab-pane>
                     <el-tab-pane label={"收藏者"} name={"third"} height={"3px"}>
                       Role
